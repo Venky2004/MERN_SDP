@@ -1,0 +1,34 @@
+import './App.css';
+import Login from '../src/Components/Login/Login';
+import Signup from './Components/Register/Signup';
+import ContactUs from './Components/ContactUs/Contactus';
+import Services from './Components/Guest/Services'
+import Guest from './Components/Guest/Guest';
+import AboutUs from './Components/Aboutus/AboutUs';
+import ProductDetails from './Components/Shopping/ProductDetails';
+import {Router,Routes,Route} from 'react-router-dom'
+import Navbar from '../src/Components/Navbar/Navbar';
+function App() {
+  return (
+  <div className="App">
+    <Routes>
+        <Route path='/feedback' element={<><ContactUs /></>}/>
+      <Route path='/login' element={<><Login /></>}/>
+      <Route path='/register' element={<><Signup /></>}/>
+      <Route exact path='/dashboard' element={<><Navbar dashboard={true}/></>}/>
+      <Route exact path="/checkout" element={<><Navbar checkout={true}/></>}/>
+      <Route exact path="/shopping" element={<><Navbar shopping={true}/></>}/>
+      <Route exact path="/buyers" element={<><Navbar buyers={true}/></>}/>
+      <Route exact path="/sellers" element={<><Navbar sellers={true}/></>}/>
+      <Route path='/' element={<Guest/>}/>
+      <Route path='/AboutUs' element={<AboutUs />} />
+    <Route path='/Services' element={<Services />} />
+    <Route path='/ProductDetails' element={<ProductDetails/>}/>
+    </Routes>
+    
+    <br/><br/>
+    </div>
+  );
+}
+
+export default App;
