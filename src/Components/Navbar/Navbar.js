@@ -31,6 +31,7 @@ import HelpCenterIcon from '@mui/icons-material/HelpCenter';
 import FeedbackIcon from '@mui/icons-material/Feedback';
 import ContactPageIcon from '@mui/icons-material/ContactPage';
 import LogoutIcon from '@mui/icons-material/Logout';
+import Aboutus from '../Aboutus/AboutUs'
 
 function ScrollTop(props) {
   
@@ -124,6 +125,7 @@ export default function BackToTop(props) {
                 <ListItemText><Button variant="text" startIcon={<ContactPageIcon/>} style={{color:"white"}}>contactus</Button></ListItemText>        
               </ListItem>
               <ListItem button  onClick={() => {
+                Cookies.remove('token')
                   navigate("/");
                 }}>
                 <ListItemText><Button variant="text" startIcon={<LogoutIcon/>} style={{color:"white"}}>LogOut</Button></ListItemText>        
@@ -143,6 +145,11 @@ export default function BackToTop(props) {
                 <ListItemText primary="Admin"/>        
               </ListItem>
               <ListItem button  onClick={() => {
+                  navigate("/about");
+                }}>
+                <ListItemText primary="Admin"/>        
+              </ListItem>
+              <ListItem button  onClick={() => {
                   navigate("/");
                 }}>
                 <ListItemText primary="LogOut"/>        
@@ -157,6 +164,8 @@ export default function BackToTop(props) {
       <Toolbar id="back-to-top-anchor" />
       <Container>
         <Box sx={{ my: 2 }}>
+        <div id="google_translate_element"></div>
+   
         {props.checkout && <Checkout/>}
         {props.shopping && <Shopping/>}
         {props.dashboard && <DashBoard/>}
@@ -164,6 +173,7 @@ export default function BackToTop(props) {
 
         {props.buyers && <Buyers/>}
         {props.sellers && <Sellers/>} 
+        {props.about && <Aboutus/>}
         </Box>
       </Container>
       <ScrollTop {...props}>

@@ -9,6 +9,8 @@ import AboutUs from './Components/Aboutus/AboutUs';
 import ProductDetails from './Components/Shopping/ProductDetails';
 import {Router,Routes,Route} from 'react-router-dom'
 import Navbar from '../src/Components/Navbar/Navbar';
+import "./fonts/Kusanagi.otf"
+
 function App() {
   return (
   <div className="App">
@@ -22,6 +24,7 @@ function App() {
       <Route exact path="/shopping" element={<><Navbar shopping={true}/></>}/>
       <Route exact path="/buyers" element={<><Navbar buyers={true}/></>}/>
       <Route exact path="/sellers" element={<><Navbar sellers={true}/></>}/>
+      <Route exact path="/about" element={<><Navbar about={true}/></>}/>
       <Route path='/' element={<Guest/>}/>
       <Route path='/AboutUs' element={<AboutUs />} />
     <Route path='/Services' element={<Services />} />
