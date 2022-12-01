@@ -16,6 +16,7 @@ export default function Signup() {
    var [des,setdescription]=useState(null);
    var [add,setaddress]=useState(null);
    var [pho,setphno]=useState(null);
+   var [pic,setpic]=useState(null);
 
   function sdata(){
     const senddata={
@@ -27,7 +28,8 @@ export default function Signup() {
       deliverable:del,
       description:des,
       faddress:add,
-      phno:pho
+      phno:pho,
+      picture:pic,
     }
     console.log(senddata);
     axios.post("http://localhost:2000/api/send",senddata)
@@ -51,6 +53,7 @@ export default function Signup() {
   setdeliverable('');
   setdescription('');
   setaddress('');
+  setpic("");
   }
   return (
     <center>
@@ -83,6 +86,14 @@ export default function Signup() {
             value={cat}
             onChange={(e)=>{setcategory(e.target.value)}}
           />
+          <select 
+          style={{width:250,height:45,margin:5 ,background:"transparent",borderRadius:10}}
+          >
+            <option>Select the category</option>
+            <option>Vegetables</option>
+            <option>Fruits</option>
+            <option>Pulses</option>
+          </select>
           <br/>
           <input
             fullWidth
@@ -137,6 +148,10 @@ export default function Signup() {
             value={pho}
             onChange={(e)=>{setphno(e.target.value)}}
           />
+          <input type="file"
+          value={pic}
+          onChange={(e)=>{setpic(e.target.value)}}
+          style={{ padding: 25, margin: 5,background:"transparent",height:10,width:300,borderRadius:10  }}/>
 </span>
            </Stack>
          

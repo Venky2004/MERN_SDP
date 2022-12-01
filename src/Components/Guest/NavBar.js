@@ -47,6 +47,8 @@ export default function NavBar(props) {
                             <ButtonGroup className='right'>
                                 <Button variant="text"><Link to='/' style={{ textDecoration: 'none', color: 'white' }}>Home</Link></Button>
                                 &nbsp;
+                                <Button variant="text" ><Link to='/weather' style={{ textDecoration: 'none', color: 'white' }} >Weather</Link></Button>
+                                &nbsp;
                                 <Button variant="text"><Link to='/AboutUs' style={{ textDecoration: 'none', color: 'white' }}>About Us</Link></Button>
                                 &nbsp;
                                 <Button variant="text"><Link to='/Services' style={{ textDecoration: 'none', color: 'white' }}>Services</Link></Button>

@@ -4,6 +4,7 @@ import Signup from './Components/Register/Signup';
 import ContactUs from './Components/ContactUs/Contactus';
 import Services from './Components/Guest/Services'
 import Guest from './Components/Guest/Guest';
+import Weather1 from './Components/Guest/Weather1';
 import AboutUs from './Components/Aboutus/AboutUs';
 import ProductDetails from './Components/Shopping/ProductDetails';
 import {Router,Routes,Route} from 'react-router-dom'
@@ -15,6 +16,7 @@ function App() {
         <Route path='/feedback' element={<><ContactUs /></>}/>
       <Route path='/login' element={<><Login /></>}/>
       <Route path='/register' element={<><Signup /></>}/>
+      <Route path='/weather' element={<Weather1/>}/>
       <Route exact path='/dashboard' element={<><Navbar dashboard={true}/></>}/>
       <Route exact path="/checkout" element={<><Navbar checkout={true}/></>}/>
       <Route exact path="/shopping" element={<><Navbar shopping={true}/></>}/>

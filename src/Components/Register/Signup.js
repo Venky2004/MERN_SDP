@@ -1,8 +1,9 @@
 import React from 'react'
 import { useState } from 'react';
-import { Button, TextField,Paper} from "@mui/material";
+import { Button, input,Paper} from "@mui/material";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import Navbar from '../Guest/NavBar'
 export default function Signup() {
   const navigate=useNavigate(false)
 
@@ -26,31 +27,32 @@ export default function Signup() {
   }
   return (
     <center>
+      <Navbar/>
                 <Paper sx={{ width: 400, border: 'none', padding: 5, margin: 5, borderRadius: 5, backgroundColor: '#cfd8dc ' }} elevation={24}>
                     <br />
                     <div>
            <h1>Sign Up</h1>
- <TextField
+ <input
             type="text"
             style={{ width: "300px",margin:10 }}
-            label="Full Name"
+            placeholder="Full Name"
             value={name}
             onChange={(e)=>{setFullName(e.target.value)}}
           />
           <br/>
- <TextField
+ <input
             type="text"
             style={{ width: "300px",margin:10 }}
-            label="Email"
+            placeholder="Email"
             value={mail}
             onChange={(e)=>{setEmail(e.target.value)}}
           />
           <br/>
- <TextField
+ <input
             fullWidth
             type="password"
             style={{ width: "300px",margin:10 }}
-            label="Password"
+            placeholder="Password"
             value={pwd}
             onChange={(e)=>{setPassword(e.target.value)}}
           />

@@ -9,6 +9,7 @@ import Facebook from './Images/facebook.png';
 import Twitter from './Images/twitter.png';
 import NavBar from '../Guest/NavBar';
 
+
 function Login() {
   var [errmsg,seterrmsg]=useState(null);
   const navigate=useNavigate(false)
@@ -43,7 +44,7 @@ function Login() {
   }
   return (
     
-    <center>
+    <center >
 <NavBar/>
        <Paper sx={{ maxWidth: 400, minHeight: 500, maxHeight: 600, margin: 5, borderRadius: 5, backgroundColor: '#cfd8dc ', zIndex: 999 }} elevation={20} >
            <br />
@@ -76,6 +77,7 @@ function Login() {
            <Button variant='text'>Forgot Password</Button>
             <Button variant="text" onClick={()=>{ navigate(`/register`)}} sx={{mb:2}}>Don't have an account?Register Here</Button>
        </Paper>
+       
    </center>
   );
 }

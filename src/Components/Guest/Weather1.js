@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import DisplayWeather from "./DisplayWeather";
 import "./weather.css";
+import NavBar from "./NavBar";
 
 function Weather1() {
   const [weather, setWeather] = useState([]);
@@ -37,6 +38,8 @@ function Weather1() {
     }
   };
   return (
+    <>
+    <NavBar/>
     <div className="weather">
       <span className="title">Weather</span>
       <br />
@@ -66,6 +69,7 @@ function Weather1() {
         </div>
       ) : null}
     </div>
+    </>
   );
 }
 
