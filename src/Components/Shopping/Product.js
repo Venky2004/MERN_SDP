@@ -29,8 +29,8 @@ const Product = (props) => {
                     <Typography gutterBottom variant="h5" component="div">
                         {props.pname}
                     </Typography>
-                    <p>quantity: {props.quantity}</p>
-                    <p>price: {props.price}</p>
+                    <p>quantity(in KGs): {props.quantity}</p>
+                    <p>price per Kg: ₹{props.price}</p>
                     <p>deliver status: {props.deliverable}</p>
                 </CardContent>
             </CardActionArea>
