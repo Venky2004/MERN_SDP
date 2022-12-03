@@ -150,6 +150,7 @@ export default function BackToTop(props) {
                 <ListItemText primary="Admin"/>        
               </ListItem>
               <ListItem button  onClick={() => {
+                 Cookies.remove('token')
                   navigate("/");
                 }}>
                 <ListItemText primary="LogOut"/>        
