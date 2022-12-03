@@ -18,7 +18,6 @@ const product = new mongoose.Schema({
     },
     quality:{
         type:String,
-        required:true
     },
     deliverable:{
         type:String,
@@ -37,6 +36,10 @@ const product = new mongoose.Schema({
         type:String,
         required:true
     },
+    phno:{
+        type:String,
+        required:true
+    }
     
 })
 

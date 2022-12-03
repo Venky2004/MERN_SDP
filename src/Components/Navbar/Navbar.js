@@ -17,6 +17,7 @@ import Checkout from "../Checkout/Checkout";
 import Shopping from "../Shopping/Shopping";
 import ContactUs from "../ContactUs/Contactus";
 import Button from '@mui/material/Button';
+import { useEffect } from 'react';
 
 
 import { useNavigate } from "react-router-dom";
@@ -32,6 +33,7 @@ import FeedbackIcon from '@mui/icons-material/Feedback';
 import ContactPageIcon from '@mui/icons-material/ContactPage';
 import LogoutIcon from '@mui/icons-material/Logout';
 import Aboutus from '../Aboutus/AboutUs'
+import GoogleTranslate from '../../Googletranslate';
 
 function ScrollTop(props) {
   
@@ -80,6 +82,15 @@ ScrollTop.propTypes = {
 };
 
 export default function BackToTop(props) {
+  const googleTranslateElementInit = () => {
+    new window.google.translate.TranslateElement({ pageLanguage: 'en', layout: window.google.translate.TranslateElement.FloatPosition.TOP_LEFT }, 'google_translate_element')
+   }   
+   useEffect(() => {
+     var addScript = document.createElement('script');
+     addScript.setAttribute('src', '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit');
+     document.body.appendChild(addScript);
+     window.googleTranslateElementInit = googleTranslateElementInit;
+   }, [])
   var data = jwt_decode(Cookies.get('token'));
   const navigate=useNavigate(false)
   console.log(data);
@@ -87,6 +98,7 @@ export default function BackToTop(props) {
     <React.Fragment>
       <CssBaseline />
       <AppBar style={{backgroundColor:"black"}}>
+        
         <Toolbar>
         <List sx={{display:"flex",alignItems:"center"}}>
         <List sx={{display:"flex",alignItems:"center"}}>
@@ -128,7 +140,7 @@ export default function BackToTop(props) {
                 Cookies.remove('token')
                   navigate("/");
                 }}>
-                <ListItemText><Button variant="text" startIcon={<LogoutIcon/>} style={{color:"white"}}>LogOut</Button></ListItemText>        
+                <ListItemText><Button variant="text" startIcon={<LogoutIcon/>} style={{color:"white"}}>LogOut</Button></ListItemText>      
               </ListItem>
               </>
               }
@@ -159,14 +171,15 @@ export default function BackToTop(props) {
               }
           
             </List>
+            <List>
+            <div id="google_translate_element"></div>  
+            </List>
         </List>
         </Toolbar>
       </AppBar>
       <Toolbar id="back-to-top-anchor" />
       <Container>
         <Box sx={{ my: 2 }}>
-        <div id="google_translate_element"></div>
-   
         {props.checkout && <Checkout/>}
         {props.shopping && <Shopping/>}
         {props.dashboard && <DashBoard/>}

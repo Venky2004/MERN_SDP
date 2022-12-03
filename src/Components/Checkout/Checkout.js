@@ -108,7 +108,7 @@ export default function Signup() {
             fullWidth
             type="text"
              style={{ padding: 25, margin: 5,background:"transparent",height:4,width:250,borderRadius:10  }}
-            placeholder="Quality"
+            placeholder="Farmer"
             value={qual}
             onChange={(e)=>{setquality(e.target.value)}}
           />

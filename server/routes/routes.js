@@ -53,7 +53,7 @@ router.post('/send',async(req,res)=>{
   const des = req.body.description;
   const ph = req.body.phno;
   const fadd = req.body.faddress;
-  const product = new productmodel({pname:prname, quantity:qua, category:cat, price:pri, quality:qual, deliverable:deli, description:des, phno:ph, faddress:fadd});
+  const product = new productmodel({pname:prname, quantity:qua, category:cat, price:pri, fname:qual, deliverable:deli, description:des, phno:ph, faddress:fadd});
   try{
     await product.save();
     res.send("Inserted Values");

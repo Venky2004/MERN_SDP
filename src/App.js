@@ -10,7 +10,6 @@ import ProductDetails from './Components/Shopping/ProductDetails';
 import {Router,Routes,Route} from 'react-router-dom'
 import Navbar from '../src/Components/Navbar/Navbar';
 import "./fonts/Kusanagi.otf"
-
 function App() {
   return (
   <div className="App">

@@ -6,13 +6,16 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import Apple from './paddy.jpg';
 import { useNavigate } from "react-router-dom";
+import './Product.css'
 
 
 const Product = (props) => {
     const navigate=useNavigate(false);
     return (
-    <Card sx={{ width:250, height: 350 }} elevation={10} onClick={(props) => {
-        navigate("/ProductDetails")}}>
+
+        <div class="flip-card">
+  <div class="flip-card-inner">
+  <Card sx={{ width:250, height: 350 }} elevation={10} className="flip-card-front">
             <CardActionArea>
                 <center>
                     <CardMedia
@@ -32,6 +35,22 @@ const Product = (props) => {
                 </CardContent>
             </CardActionArea>
         </Card>
+        <Card sx={{ width:250, height: 350 }} elevation={10} className="flip-card-back">
+            <CardActionArea>
+                <CardContent>
+                    <h3><b>Farmer:</b> {props.fname}</h3>
+                    <br/>
+                    <p><b>Address:</b> {props.address}</p>
+                    <br/>
+                    <p><b>Phone Number:</b> {props.phone}</p>
+                    <br/>
+                    <p><b>Description:</b> {props.des}</p>
+                </CardContent>
+            </CardActionArea>
+        </Card>
+  </div>
+</div>
+
     )
 }
 
