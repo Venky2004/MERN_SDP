@@ -21,7 +21,7 @@ import Button from '@mui/material/Button';
 
 import { useNavigate } from "react-router-dom";
 import DashBoard from '../Dashboard/OrderTable';
-import Buyers from '../Buyers/buyers';
+import Buyers from '../Buyers/Buyers';
 import Sellers from '../Sellers/Sellers';
 import Cookies from 'js-cookie';
 import jwt_decode from "jwt-decode";
@@ -147,7 +147,7 @@ export default function BackToTop(props) {
               <ListItem button  onClick={() => {
                   navigate("/about");
                 }}>
-                <ListItemText primary="Admin"/>        
+                <ListItemText primary="Aboutus"/>        
               </ListItem>
               <ListItem button  onClick={() => {
                  Cookies.remove('token')

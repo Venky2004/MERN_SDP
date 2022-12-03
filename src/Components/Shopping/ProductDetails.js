@@ -18,7 +18,7 @@ const ProductDetails = (props) => {
             <CardMedia sx={{ maxWidth: 250, borderRadius: 10, margin: 4, marginLeft: 5 }} component="img" alt="Venkat" height="250" image={Paddy} /> 
 
         </span>
-        <span style={{maxwidth:200 ,padding:20,textAlign:'left'}}> <h4>Product name : Paddy</h4>
+        <span style={{maxwidth:200 ,padding:20,textAlign:'left'}}> <h4>Product name : {props.pname}</h4>
         <h4>Quantity : 250Kgs</h4>
         <h4>Category : Grains</h4>
         <h4>Price : 50 Rs\- per kg</h4>

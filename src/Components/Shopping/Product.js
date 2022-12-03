@@ -20,7 +20,7 @@ const Product = (props) => {
                         height="auto"
                         image={props.img}
                         alt=""
-                        sx={{ width: 250 }} />
+                        sx={{ width: 250, height:180}} />
                 </center>
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">

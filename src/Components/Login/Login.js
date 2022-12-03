@@ -65,14 +65,14 @@ function Login() {
           fullWidth
           color="secondary"
           onClick={signindata}>Login</Button>
-           <Typography>OR LOGIN WITH</Typography>
+           {/* <Typography>OR LOGIN WITH</Typography>
            <hr style={{ width: 300, padding: 2, visibility: 'transparent' }} />
            <ButtonGroup variant="textf" sx={{ padding: 2 ,width:200}}>
                <Button><img src={Google} width='30' alt="Google" /></Button>
                <Button><img src={Facebook} width='30'alt="Facebook" /></Button>
                <Button><img src={Apple} width='30' alt="Apple"/></Button>
                <Button><img src={Twitter} width='30'alt="Twitter" /></Button>
-           </ButtonGroup>
+           </ButtonGroup> */}
            <br />
            <Button variant='text'>Forgot Password</Button>
             <Button variant="text" onClick={()=>{ navigate(`/register`)}} sx={{mb:2}}>Don't have an account?Register Here</Button>

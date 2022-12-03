@@ -86,14 +86,14 @@ export default function Signup() {
             value={cat}
             onChange={(e)=>{setcategory(e.target.value)}}
           />
-          <select 
+          {/* <select 
           style={{width:250,height:45,margin:5 ,background:"transparent",borderRadius:10}}
           >
             <option>Select the category</option>
             <option>Vegetables</option>
             <option>Fruits</option>
             <option>Pulses</option>
-          </select>
+          </select> */}
           <br/>
           <input
             fullWidth

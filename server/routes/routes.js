@@ -75,6 +75,7 @@ router.post('/login',async (req,res)=>{
         .then((passwordCheck) => {
           // check if password matches
           if(!passwordCheck) {
+        
             return res.status(400).send({
               message: "Passwords does not match",
               error,
