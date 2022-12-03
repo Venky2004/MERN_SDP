@@ -71,9 +71,9 @@ export default function Signup() {
           />
           <br/>
  <input
-            type="text"
+            type="number"
              style={{ padding: 25, margin: 5,background:"transparent",height:4,width:250,borderRadius:10  }}
-            placeholder="Quantity"
+            placeholder="Quantity(in kilograms)"
             value={qua}
             onChange={(e)=>{setquantity(e.target.value)}}
           />
@@ -97,9 +97,9 @@ export default function Signup() {
           <br/>
           <input
             fullWidth
-            type="text"
+            type="number"
              style={{ padding: 25, margin: 5,background:"transparent",height:4,width:250,borderRadius:10  }}
-            placeholder="Price"
+            placeholder="Price(in rupees)"
             value={pri}
             onChange={(e)=>{setprice(e.target.value)}}
           />
