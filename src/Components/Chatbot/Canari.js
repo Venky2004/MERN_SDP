@@ -17,9 +17,7 @@ export class Canari extends Component {
 
   render() {
     return (
-      <div>
-        <center><h1>OUR CHATBOT</h1></center>
-      </div>
+      <></>
     )
   }
 }

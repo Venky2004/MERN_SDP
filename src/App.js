@@ -9,6 +9,7 @@ import AboutUs from './Components/Aboutus/AboutUs';
 import ProductDetails from './Components/Shopping/ProductDetails';
 import {Router,Routes,Route} from 'react-router-dom'
 import Navbar from '../src/Components/Navbar/Navbar';
+import Canari from '../src/Components/Chatbot/Canari'
 import "./fonts/Kusanagi.otf"
 function App() {
   return (
@@ -29,7 +30,7 @@ function App() {
     <Route path='/Services' element={<Services />} />
     <Route path='/ProductDetails' element={<ProductDetails/>}/>
     </Routes>
-    
+  <Canari/>
     <br/><br/>
     </div>
   );
