@@ -14,14 +14,14 @@ const AboutUs = () => {
     return (
         <div> <NavBar />
          <br />
-        <div className="row">
+        <div className="row text">
            
             <div className="col-md-3"></div>
             <div className="col-md-4">
-           <div style={{width:'800px',align:'center'}} className="card">
+           <div style={{width:'800px',align:'center'}} className="Profilecard">
                     <div className="row" style={{padding:20}}>
                     <div className="col-md-1"></div>
-                        <div className="col-md-4" style={{paddingTop: '10px'}}>
+                        <div className="col-md-4 profilepic" style={{paddingTop: '10px'}}>
                             <img src={tg} alt="profile" width="150" height="150"/>
                         </div>
                         <div className="col-md-7" style={{paddingTop:'15px'}}>
@@ -93,10 +93,10 @@ const AboutUs = () => {
                         </div>
                     </div>
            </div><br/><br />
-           <div style={{width:'800px',align:'center'}} className="card">
+           <div style={{width:'800px',align:'center'}} className="Profilecard">
                     <div className="row" style={{padding:20}}>
                     <div className="col-md-1"></div>
-                        <div className="col-md-3" style={{paddingTop: '10px'}}>
+                        <div className="col-md-3 profilepic" style={{paddingTop: '10px'}}>
                             <img src={gf} alt="profile" width="150" height="150"/>
                         </div>
                         <div className="col-md-8" style={{paddingTop:'15px'}}>
@@ -168,10 +168,10 @@ const AboutUs = () => {
                         </div>
                     </div>
            </div><br /><br />
-           <div style={{width:'800px',align:'center'}} className="card">
+           <div style={{width:'800px',align:'center'}} className="Profilecard">
                     <div className="row" style={{padding:20}}>
                     <div className="col-md-1"></div>
-                        <div className="col-md-3" style={{paddingTop: '10px'}}>
+                        <div className="col-md-3 profilepic" style={{paddingTop: '10px'}}>
                             <img src={dc} alt="profile" width="150" height="150"/>
                         </div>
                         <div className="col-md-8" style={{paddingTop:'15px'}}>
