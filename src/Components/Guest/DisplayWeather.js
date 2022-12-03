@@ -17,14 +17,14 @@ function DisplayWeather(props) {
             <span className="cardsubtitle">
               As of {new Date().toLocaleTimeString()}
             </span>
-
-            <h1>
-              {" "}
+<br/>
+            <h1 style={{paddingLeft:100}}>
+              {"     "}
               {Math.floor(data.main.temp - 273.15)}
               <sup>o</sup>
             </h1>
             <span className="weather-main">{data.weather[0].main}</span>
-            <img className="weather-icon" src={iconurl} alt="" srcset="" />
+            <img className="weather-icon" src={iconurl} alt="" srcset="" style={{paddingLeft:50}}/>
             <span className="weather-description">
               {" "}
               {data.weather[0].description}
