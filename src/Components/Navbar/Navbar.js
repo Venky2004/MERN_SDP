@@ -115,14 +115,14 @@ export default function BackToTop(props) {
                 <ListItemText><Button variant="text" startIcon={<HelpCenterIcon/>} style={{color:"white"}}>Help</Button></ListItemText>        
               </ListItem>
               <ListItem button  onClick={() => {
-                  navigate("/feedback");
-                }}>
-                <ListItemText><Button variant="text" startIcon={<FeedbackIcon/>} style={{color:"white"}}>FeedBack</Button></ListItemText>        
-              </ListItem>
-              <ListItem button  onClick={() => {
                   navigate("/contactus");
                 }}>
-                <ListItemText><Button variant="text" startIcon={<ContactPageIcon/>} style={{color:"white"}}>contactus</Button></ListItemText>        
+                <ListItemText><Button variant="text" startIcon={<ContactPageIcon/>} style={{color:"white"}}>ContactUs</Button></ListItemText>        
+              </ListItem>
+              <ListItem button  onClick={() => {
+                  navigate("/feedback");
+                }}>
+                <ListItemText><Button variant="text" startIcon={<FeedbackIcon/>} style={{color:"white"}}>Feedback</Button></ListItemText>        
               </ListItem>
               <ListItem button  onClick={() => {
                 Cookies.remove('token')
@@ -169,7 +169,7 @@ export default function BackToTop(props) {
         {props.checkout && <Checkout/>}
         {props.shopping && <Shopping/>}
         {props.dashboard && <DashBoard/>}
-        {props.feedback && <ContactUs/>}
+        {props.contactus && <ContactUs/>}
 
         {props.buyers && <Buyers/>}
         {props.sellers && <Sellers/>} 
