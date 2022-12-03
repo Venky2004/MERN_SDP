@@ -19,8 +19,11 @@ const Intro= () => {
       </Grid>
       <Grid item xs={2} style={{backgroundColor:"whitesmoke",zIndex:5}} >
         <Button variant="text" size='large' margin={5} color="secondary" onClick={() => changeView(ComputerScience)} >Agriculture</Button>
+        <br/>
         <Button variant="text" size='large' margin={5} color="secondary" onClick={() => changeView(Electrical)} >How to ?</Button>
+        <br/>
         <Button variant="text" size='large' margin={5} color="secondary" onClick={() => changeView(Mechanical)} >Aquaculture</Button>
+        <br/>
         <Button variant="text" size='large' margin={5} color="secondary" onClick={() => changeView(BioTech)} >BT</Button>
         </Grid>
       </Grid>
