@@ -1,7 +1,9 @@
 import React from 'react'
 import Product from './Product'
+import './Shopping.css'
 import { useState,useEffect } from 'react'
 import axios from 'axios'
+import Button from '@mui/material/Button'
 import ab from './pimages/apple.jpg';
 import ma from './pimages/grapes.jpg';
 import man from './pimages/mango.jpg';
@@ -24,113 +26,68 @@ import zx from './pimages/crab.jpg';
 import fish from './pimages/fish.jpg';
 import prawm from './pimages/prawns.jpeg';
 import prom from './pimages/pomfret.jpg';
+import SearchBar from './SearchBar';
+import { Radio } from '@mui/material'
 
 
 const Shopping = () => {
     const [productList,setproductlist]=useState([]);
+    const [data,setdata]=useState([]);
 
     useEffect(()=>{
         axios.get("http://localhost:2000/api/products").then((response)=>{
           setproductlist(response.data);
+          setdata(response.data);
           console.log(productList)
         })
       },[]);
-    return (
-        <div>
-        <div style={{ margin: 10, paddingLeft: 5 }}>
 
-                <h1 style={{ padding: 15 ,color:"white"}}>Fruits</h1>
-                <ul style={{display:"flex",width:1100,overflowX:"auto"}}>
-                         {productList.map((val,key)=>{
-                        if(val.category==="Fruits" && val.pname==='Grapes')
-                        {return(<li style={{margin:15}}><Product key={key} img={`${ma}`} pname={val.pname} quantity={val.quantity} price={val.price}  deliverable={val.deliverable} fname={val.fname} phone={val.phno} address={val.faddress} des={val.description}/></li>);}
-                        if(val.category==="Fruits" && val.pname==='Orange')
-                        {return(<li style={{margin:15}}><Product key={key} img={`${or}`} pname={val.pname} quantity={val.quantity} price={val.price}  deliverable={val.deliverable} fname={val.fname} phone={val.phno} address={val.faddress} des={val.description}/></li>);}
-                        if(val.category==="Fruits" && val.pname==='Apple')
-                        {return(<li style={{margin:15}}><Product key={key} img={`${ab}`} pname={val.pname} quantity={val.quantity} price={val.price}  deliverable={val.deliverable} fname={val.fname} phone={val.phno} address={val.faddress} des={val.description}/></li>);}
-                        if(val.category==="Fruits" && val.pname==='Mango')
-                        {return(<li style={{margin:15}}><Product key={key} img={`${man}`} pname={val.pname} quantity={val.quantity} price={val.price}  deliverable={val.deliverable} fname={val.fname} phone={val.phno} address={val.faddress} des={val.description}/></li>);}
-                        if(val.category==="Fruits" && val.pname==='Pomegranate')
-                        {return(<li style={{margin:15}}><Product key={key} img={`${pome}`} pname={val.pname} quantity={val.quantity} price={val.price}  deliverable={val.deliverable} fname={val.fname} phone={val.phno} address={val.faddress} des={val.description}/></li>);}
-                        })}
-                </ul>
-                <br />
-                <hr />
-                <br />
-                <h1 style={{ padding: 15 ,color:"white"}}>Vegetables</h1>
-                <ul style={{display:"flex",width:1100,overflowX:"auto"}}>
-                    {productList.map((val,key)=>{
-                        if(val.category==="Vegetables" && val.pname==="LadyFinger")
-                        {return(<li style={{margin:15}}><Product key={key} img={`${ladyfinger}`} pname={val.pname} quantity={val.quantity} price={val.price} deliverable={val.deliverable} fname={val.fname} phone={val.phno} address={val.faddress} des={val.description}/></li>);}
-                        if(val.category==="Vegetables" && val.pname==="Tomato")
-                        {return(<li style={{margin:15}}><Product key={key} img={`${ce}`} pname={val.pname} quantity={val.quantity} price={val.price} deliverable={val.deliverable} fname={val.fname} phone={val.phno} address={val.faddress} des={val.description} /></li>);}
-                        if(val.category==="Vegetables" && val.pname==="Ridge Gourd")
-                        {return(<li style={{margin:15}}><Product key={key} img={`${ridge}`} pname={val.pname} quantity={val.quantity} price={val.price} deliverable={val.deliverable} fname={val.fname} phone={val.phno} address={val.faddress} des={val.description}/></li>);}
-                        if(val.category==="Vegetables" && val.pname==="Potato")
-                        {return(<li style={{margin:15}}><Product key={key} img={`${po}`} pname={val.pname} quantity={val.quantity} price={val.price} deliverable={val.deliverable} fname={val.fname} phone={val.phno} address={val.faddress} des={val.description}/></li>);}
-                     else if(val.category==="Vegetables")
-                        {return(<li style={{margin:15}}><Product key={key} img={`${unknown}`} pname={val.pname} quantity={val.quantity} price={val.price} deliverable={val.deliverable} fname={val.fname} phone={val.phno} address={val.faddress} des={val.description}/></li>);}
-                        })}
-                </ul>
-                <br />
-                <hr />
-                <br />
-                <h1 style={{ padding: 15 ,color:"white"}}>Pulses</h1>
-                <ul style={{display:"flex",width:1100,overflowX:"auto"}}>
-                    {productList.map((val,key)=>{
-                        if(val.category==="Pulses" && val.pname==="RedLentils")
-                        {return(<li style={{margin:15}}><Product key={key} img={`${redl}`} pname={val.pname} quantity={val.quantity} price={val.price}  deliverable={val.deliverable} fname={val.fname} phone={val.phno} address={val.faddress} des={val.description}/></li>);}
-                        if(val.category==="Pulses" && val.pname==="Moong Dal")
-                        {return(<li style={{margin:15}}><Product key={key} img={`${moong}`} pname={val.pname} quantity={val.quantity} price={val.price}  deliverable={val.deliverable} fname={val.fname} phone={val.phno} address={val.faddress} des={val.description}/></li>);}
-                        if(val.category==="Pulses" && (val.pname==="ChickPeas" || val.pname==='Chole' ))
-                        {return(<li style={{margin:15}}><Product key={key} img={`${chole}`} pname={val.pname} quantity={val.quantity} price={val.price}  deliverable={val.deliverable} fname={val.fname} phone={val.phno} address={val.faddress} des={val.description}/></li>);}
-                        if(val.category==="Pulses" && val.pname==="BengalGram")
-                        {return(<li style={{margin:15}}><Product key={key} img={`${bengal}`} pname={val.pname} quantity={val.quantity} price={val.price}  deliverable={val.deliverable} fname={val.fname} phone={val.phno} address={val.faddress} des={val.description}/></li>);}
-                        else if(val.category==="Pulses")
-                        {return(<li style={{margin:15}}><Product key={key} img={`${unknown}`} pname={val.pname} quantity={val.quantity} price={val.price}  deliverable={val.deliverable} fname={val.fname} phone={val.phno} address={val.faddress} des={val.description}/></li>);}
-                         })}
-                         
-                </ul>
-                <br />
-                <hr />
-                <br />
-                <h1 style={{ padding: 15,color:"white" }} >Grains</h1>
-                <ul style={{display:"flex",width:1100,overflowX:"auto"}}>
-                    {productList.map((val,key)=>{
-                        if(val.category==="Grains" && val.pname==="Paddy")
-                        {return(<li style={{margin:15}}><Product key={key} img={`${hj}`} pname={val.pname} quantity={val.quantity} price={val.price}  deliverable={val.deliverable} fname={val.fname} phone={val.phno} address={val.faddress} des={val.description}/></li>);}
-                        if(val.category==="Grains" && val.pname==="Millet")
-                        {return(<li style={{margin:15}}><Product key={key} img={`${millet}`} pname={val.pname} quantity={val.quantity} price={val.price}  deliverable={val.deliverable} fname={val.fname} phone={val.phno} address={val.faddress} des={val.description}/></li>);}
-                        if(val.category==="Grains" && val.pname==="Barley")
-                        {return(<li style={{margin:15}}><Product key={key} img={`${barley}`} pname={val.pname} quantity={val.quantity} price={val.price}  deliverable={val.deliverable} fname={val.fname} phone={val.phno} address={val.faddress} des={val.description}/></li>);}
-                        if(val.category==="Grains" && val.pname==="BrownRice")
-                        {return(<li style={{margin:15}}><Product key={key} img={`${fg}`} pname={val.pname} quantity={val.quantity} price={val.price}  deliverable={val.deliverable} fname={val.fname} phone={val.phno} address={val.faddress} des={val.description}/></li>);}
-                       else  if(val.category==="Grains")
-                        {return(<li style={{margin:15}}><Product key={key} img={`${unknown}`} pname={val.pname} quantity={val.quantity} price={val.price}  deliverable={val.deliverable} fname={val.fname} phone={val.phno} address={val.faddress} des={val.description}/></li>);}
-                        })}
-                </ul>
-                <br />
-                <hr />
-                <br />
-                <h1 style={{ padding: 15,color:"white" }} >Aqua Products</h1>
-                <ul style={{display:"flex",width:1100,overflowX:"auto"}}>
-                    {productList.map((val,key)=>{
-                        if(val.category==="Aqua Products" && val.pname==="Crab")
-                        {return(<li style={{margin:15}}><Product key={key} img={`${zx}`} pname={val.pname} quantity={val.quantity} price={val.price}  deliverable={val.deliverable} fname={val.fname} phone={val.phno} address={val.faddress} des={val.description}/></li>);}
-                        if(val.category==="Aqua Products" && val.pname==="Fish")
-                        {return(<li style={{margin:15}}><Product key={key} img={`${fish}`} pname={val.pname} quantity={val.quantity} price={val.price}  deliverable={val.deliverable} fname={val.fname} phone={val.phno} address={val.faddress} des={val.description}/></li>);}
-                        if(val.category==="Aqua Products" && val.pname==="Prawns")
-                        {return(<li style={{margin:15}}><Product key={key} img={`${prawm}`} pname={val.pname} quantity={val.quantity} price={val.price}  deliverable={val.deliverable} fname={val.fname} phone={val.phno} address={val.faddress} des={val.description}/></li>);}
-                        if(val.category==="Aqua Products" && val.pname==="Pomfret")
-                        {return(<li style={{margin:15}}><Product key={key} img={`${prom}`} pname={val.pname} quantity={val.quantity} price={val.price}  deliverable={val.deliverable} fname={val.fname} phone={val.phno} address={val.faddress} des={val.description}/></li>);}
-                        else if(val.category==="Aqua Products")
-                        {return(<li style={{margin:15}}><Product key={key} img={`${unknown}`} pname={val.pname} quantity={val.quantity} price={val.price}  deliverable={val.deliverable} fname={val.fname} phone={val.phno} address={val.faddress} des={val.description}/></li>);}
-                        })}
-                </ul>
-                <br />
-                <hr />
+      const filterResult=(cat)=>{
+        if(cat==='all'){
+            setdata(productList);
+        }
+        else{
+        const result=productList.filter((curData)=>{
+            return curData.category===cat;
+        })
+    setdata(result)}
+      }
+      const filterResults=(cat)=>{
+        const result=data.filter((curData)=>{
+            return curData.deliverable===cat;
+        })
+    setdata(result)
+      }
+    return (
+       <div className='row mt-5'>
+        <div className='col-md-3'  style={{backgroundColor:'white'}}>
+            <br/>
+            <h3>Search</h3>
+            <SearchBar placeholder="Enter Product Name" data={productList} />
+            <h3>Filters</h3>
+            <div>
+                <h5>Category</h5>
+               <div className='row'>
+                <div className='col-md-1'>
+                    <Button onClick={()=>filterResult('Fruits')}>Fruits</Button>
+                    <Button onClick={()=>filterResult('Pulses')}>Pulses</Button>
+                    <Button onClick={()=>filterResult('Grains')}>Grains</Button>
+                    <Button onClick={()=>filterResult('Vegetables')}>Vegetables</Button>
+                    <Button onClick={()=>filterResult('Aqua Products')}>Aqua Products</Button>
+                    <Button onClick={()=>filterResult('all')}>ALL</Button>
+                </div>
+               </div>
+               <div>
+               <h5>Deliverable</h5>
+              <Button onClick={()=>filterResults('Yes')}>Yes</Button>
+                    </div>
             </div>
+            </div>
+        <div className='col-md-8 row' style={{backgroundColor:'white'}}>
+        <br />
+        {data.map((val,key)=>{{return(<li style={{margin:25}} className="col-md-3"><Product key={key} img={`${ma}`} pname={val.pname} quantity={val.quantity} price={val.price}  deliverable={val.deliverable} fname={val.fname} phone={val.phno} address={val.faddress} des={val.description}/></li>);}})}
         </div>
+       </div>
     )
 }
 

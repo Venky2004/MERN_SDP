@@ -22,9 +22,10 @@ function App() {
       <Route exact path='/dashboard' element={<><Navbar dashboard={true}/></>}/>
       <Route exact path="/checkout" element={<><Navbar checkout={true}/></>}/>
       <Route exact path="/shopping" element={<><Navbar shopping={true}/></>}/>
+      <Route exact path="/feedback" element={<><Navbar feedback={true}/></>}/>
       <Route exact path="/buyers" element={<><Navbar buyers={true}/></>}/>
       <Route exact path="/sellers" element={<><Navbar sellers={true}/></>}/>
-      <Route exact path="/about" element={<><Navbar about={true}/></>}/>
+      <Route exact path="/viewfeedbacks" element={<><Navbar viewfeedbacks={true}/></>}/>
       <Route path='/' element={<Guest/>}/>
       <Route path='/AboutUs' element={<AboutUs />} />
     <Route path='/Services' element={<Services />} />

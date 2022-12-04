@@ -5,6 +5,8 @@ const signuptemp=require("../models/signupmodel")
 const bcrypt = require('bcrypt');
 const jwt = require("jsonwebtoken");
 const product = require("../models/product");
+const feedback = require("../models/feedback");
+const feedbackmodel = require("../models/feedback");
 const productmodel= require("../models/product");
 const signupmodel=require("../models/signupmodel")
 
@@ -63,6 +65,33 @@ router.post('/send',async(req,res)=>{
     }
   }
 );
+
+router.post('/sendfeedback',async(req,res)=>{
+  const pname=req.body.name;
+  const elemail=req.body.email;
+  const phonenumber = req.body.phone;
+  const msg= req.body.message;
+  const rat=req.body.rating;
+  const feedback = new feedbackmodel({name:pname, email:elemail, phone:phonenumber, message:msg,rating:rat});
+  try{
+    await feedback.save();
+    res.send("Inserted Values");
+  }
+    catch(err){
+      console.log(err);
+    }
+  }
+);
+
+router.get('/feedbacks',async(req,res)=>{
+  feedbackmodel.find({},(err,result)=>{
+    if(err){
+      res.send(err);
+  }
+  res.json(result);
+  });
+  });
+
 
 router.post('/login',async (req,res)=>{
     signuptemp.findOne({ email: req.body.email })

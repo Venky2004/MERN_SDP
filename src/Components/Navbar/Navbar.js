@@ -16,6 +16,7 @@ import ForestIcon from '@mui/icons-material/Forest';
 import Checkout from "../Checkout/Checkout";
 import Shopping from "../Shopping/Shopping";
 import ContactUs from "../ContactUs/Contactus";
+import Feedbacks from '../Admin/Feedbacks';
 import Button from '@mui/material/Button';
 import { useEffect } from 'react';
 
@@ -32,7 +33,8 @@ import HelpCenterIcon from '@mui/icons-material/HelpCenter';
 import FeedbackIcon from '@mui/icons-material/Feedback';
 import ContactPageIcon from '@mui/icons-material/ContactPage';
 import LogoutIcon from '@mui/icons-material/Logout';
-import Aboutus from '../Aboutus/AboutUs'
+import Aboutus from '../Aboutus/AboutUs';
+import Feedback from '../Feedback/Feedback';
 import GoogleTranslate from '../../Googletranslate';
 
 function ScrollTop(props) {
@@ -157,9 +159,9 @@ export default function BackToTop(props) {
                 <ListItemText primary="Admin"/>        
               </ListItem>
               <ListItem button  onClick={() => {
-                  navigate("/about");
+                  navigate("/viewfeedbacks");
                 }}>
-                <ListItemText primary="Aboutus"/>        
+                <ListItemText primary="View Feedbacks"/>        
               </ListItem>
               <ListItem button  onClick={() => {
                  Cookies.remove('token')
@@ -184,10 +186,11 @@ export default function BackToTop(props) {
         {props.shopping && <Shopping/>}
         {props.dashboard && <DashBoard/>}
         {props.contactus && <ContactUs/>}
+        {props.feedback && <Feedback/>}
 
         {props.buyers && <Buyers/>}
         {props.sellers && <Sellers/>} 
-        {props.about && <Aboutus/>}
+        {props.viewfeedbacks && <Feedbacks/>}
         </Box>
       </Container>
       <ScrollTop {...props}>
