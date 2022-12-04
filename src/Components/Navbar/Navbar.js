@@ -115,7 +115,7 @@ export default function BackToTop(props) {
                   navigate("/dashboard");
                 }}>
                 <ListItemText><Button variant="text" startIcon={<DashboardIcon />} style={{color:"white"}}>
-  Dashboard
+  {/* Dashboard */}
 </Button></ListItemText>        
               </ListItem>
                     <ListItem button  onClick={() => {

@@ -1,33 +1,12 @@
 import React from 'react'
 import Product from './Product'
 import './Shopping.css'
+import './SearchBar.css'
 import { useState,useEffect } from 'react'
 import axios from 'axios'
 import Button from '@mui/material/Button'
-import ab from './pimages/apple.jpg';
-import ma from './pimages/grapes.jpg';
-import man from './pimages/mango.jpg';
-import or from './pimages/orange.jpg';
-import ladyfinger from './pimages/ladyfinger.jpg';
-import ridge from './pimages/ridge.jpg';
-import redl from './pimages/redlentils.jpg';
-import barley from './pimages/barley.jpg';
-import bengal from './pimages/bengal.jpg';
-import chole from './pimages/chole.jpg';
-import millet from './pimages/millet.jpg';
-import unknown from './pimages/unknown.jpg';
-import moong from './pimages/moong.jpg';
-import po from './pimages/potato.jpg';
-import pome from './pimages/promo.jpg'
-import ce from './pimages/tomato.jpg';
-import fg from './pimages/brownrice.jpg';
-import hj from './pimages/paddy.jpg';
-import zx from './pimages/crab.jpg';
-import fish from './pimages/fish.jpg';
-import prawm from './pimages/prawns.jpeg';
-import prom from './pimages/pomfret.jpg';
-import SearchBar from './SearchBar';
-import { Radio } from '@mui/material'
+import SearchIcon from "@mui/icons-material/Search";
+import CloseIcon from "@mui/icons-material/Close";
 
 
 const Shopping = () => {
@@ -41,6 +20,28 @@ const Shopping = () => {
           console.log(productList)
         })
       },[]);
+
+      const [filteredData, setFilteredData] = useState([]);
+      const [wordEntered, setWordEntered] = useState("");
+  
+      const handleFilter = (event) => {
+          const searchWord = event.target.value;
+          setWordEntered(searchWord);
+          const newFilter = data.filter((value) => {
+              return value.pname.toLowerCase().includes(searchWord.toLowerCase());
+          });
+          if (searchWord === "") {
+              setFilteredData([]);
+          } else {
+              setFilteredData(newFilter);
+              setdata(filteredData);
+          }
+      };
+  
+      const clearInput = () => {
+          setFilteredData([]);
+          setWordEntered("");
+      };
 
       const filterResult=(cat)=>{
         if(cat==='all'){
@@ -63,7 +64,22 @@ const Shopping = () => {
         <div className='col-md-3'  style={{backgroundColor:'white'}}>
             <br/>
             <h3>Search</h3>
-            <SearchBar placeholder="Enter Product Name" data={productList} />
+            <div className="search" >
+            <div className='searchInputs' >
+                <input
+                    type="text"
+                    placeholder="Enter Product Name"
+                    value={wordEntered}
+                    onChange={handleFilter} />
+                <div className="searchIcon">
+                    {filteredData.length === 0 ? (
+                        <SearchIcon sx={{ color: "black" }} />
+                    ) : (
+                        <CloseIcon id="clearBtn" onClick={clearInput} sx={{ color: "black" }} />
+                    )}
+                </div>
+            </div>
+        </div>
             <h3>Filters</h3>
             <div>
                 <h5>Category</h5>
@@ -85,7 +101,7 @@ const Shopping = () => {
             </div>
         <div className='col-md-8 row' style={{backgroundColor:'white'}}>
         <br />
-        {data.map((val,key)=>{{return(<li style={{margin:25}} className="col-md-3"><Product key={key} img={`${ma}`} pname={val.pname} quantity={val.quantity} price={val.price}  deliverable={val.deliverable} fname={val.fname} phone={val.phno} address={val.faddress} des={val.description}/></li>);}})}
+        {data.map((val,key)=>{{return(<li style={{margin:25}} className="col-md-3"><Product key={key}  pname={val.pname} quantity={val.quantity} price={val.price}  deliverable={val.deliverable} fname={val.fname} phone={val.phno} address={val.faddress} des={val.description}/></li>);}})}
         </div>
        </div>
     )
